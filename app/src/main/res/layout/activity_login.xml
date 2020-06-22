@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/AppBar"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+    />
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login_lbl_welcome_text"
+            style="@style/lbl_welcome"
+            android:id="@+id/main_lbl_welcome2"
+            app:layout_constraintTop_toBottomOf="@+id/topAppBar2"
+            android:layout_marginTop="20dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+    />
+
+    <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:id="@+id/login_lbl_email"
+            style="@style/lbl_info"
+            android:textAlignment="textStart"
+            android:text="@string/login_lbl_email_text"
+
+            app:layout_constraintStart_toStartOf="@+id/main_lbl_welcome2"
+            app:layout_constraintEnd_toEndOf="@+id/main_lbl_welcome2"
+            app:layout_constraintTop_toBottomOf="@+id/main_lbl_welcome2" android:layout_marginTop="30dp"/>
+
+    <EditText
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:id="@+id/login_txt_email"
+            app:layout_constraintStart_toStartOf="@+id/login_lbl_email"
+            app:layout_constraintTop_toBottomOf="@+id/login_lbl_email"
+            app:layout_constraintEnd_toEndOf="@+id/login_lbl_email"
+            android:hint="@string/login_txt_email_placeholder"
+            android:inputType="textEmailAddress" style="@style/input_text"
+    />
+
+    <TextView
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:id="@+id/login_lbl_password"
+            style="@style/lbl_info"
+            android:textAlignment="textStart"
+            android:text="@string/login_lbl_password_text"
+
+            app:layout_constraintEnd_toEndOf="@+id/login_txt_email"
+            app:layout_constraintStart_toStartOf="@+id/login_txt_email"
+            app:layout_constraintTop_toBottomOf="@+id/login_txt_email" android:layout_marginTop="20dp"
+    />
+
+    <EditText
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:id="@+id/login_txt_password"
+            app:layout_constraintStart_toStartOf="@+id/login_lbl_password"
+            app:layout_constraintTop_toBottomOf="@+id/login_lbl_password"
+            app:layout_constraintEnd_toEndOf="@+id/login_lbl_password"
+            android:hint="@string/login_txt_password_placeholder"
+            android:inputType="textPassword"
+            style="@style/input_text"
+    />
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:id="@+id/login_btn_login"
+            android:text="@string/login_btn_login_text"
+            style="@style/SimCareerButton"
+            app:layout_constraintTop_toBottomOf="@+id/login_txt_password"
+            android:layout_marginTop="40dp" app:layout_constraintEnd_toEndOf="@+id/login_txt_password"
+            app:layout_constraintStart_toStartOf="@+id/login_txt_password"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

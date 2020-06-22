@@ -1,0 +1,97 @@
+<resources>
+    <string name="app_name">SimCareer</string>
+    <string name="main_activity_lbl_welcome">Benvenuto su SimCareer, accedi al tuo profilo oppure creane uno se ancora
+        non lo hai
+    </string>
+    <string name="main_btn_login_text">Accedi a un profilo esistente</string>
+    <string name="or">Oppure</string>
+    <string name="main_btn_register_text">Crea un nuovo profilo</string>
+    <string name="login_lbl_welcome_text">Accedi al tuo profilo SimCareer</string>
+    <string name="login_lbl_email_text">Indirizzo email</string>
+    <string name="login_txt_email_placeholder">Inserisci l\'indirizzo email</string>
+    <string name="login_txt_password_placeholder">Inserisci qui la password</string>
+    <string name="login_btn_login_text">Accedi</string>
+    <string name="sign_up_lbl_welcome">Per creare un profilo su SimCareer dicci qualcosa di te</string>
+    <string name="sign_up_lbl_personal_info">Informazioni personali</string>
+    <string name="sign_up_lbl_name">Nome</string>
+    <string name="sign_up_txt_name_placeholder">Inserisci qui il tuo nome</string>
+    <string name="sign_up_txt_surname_placeholder">Inserisci qui il tuo cognome</string>
+    <string name="sign_up_lbl_surname">Cognome</string>
+    <string name="sign_up_lbl_email">Indirizzo email</string>
+    <string name="sign_up_txt_email_placeholder">Inserisci qui il tuo indirizzo email</string>
+    <string name="sign_up_lbl_bdate">Data di nascita</string>
+    <string name="sign_up_txt_bdate_placeholder">Inserisci la tua data di nascita</string>
+    <string name="sign_up_lbl_living">Residenza</string>
+    <string name="sign_up_txt_living_placeholder">Inserisci qui la tua residenza</string>
+    <string name="sign_up_lbl_liking">Dicci cosa ti piace</string>
+    <string name="sign_up_lbl_prefrace">Numero di gara preferito</string>
+    <string name="sign_up_txt_prefrace_placeholder">Inserisci il tuo numero di gara preferito</string>
+    <string name="sign_up_lbl_prefcircuit">Circuito preferito</string>
+    <string name="sign_up_txt_prefcircuit_placeholder">Inserisci qui il tuo circuito preferito</string>
+    <string name="sign_up_lbl_prefcar">Auto preferita</string>
+    <string name="sign_up_txt_prefcar_placeholder">Inserisci qui la tua auto preferita</string>
+    <string name="sign_up_lbl_hate">Dicci cosa odi</string>
+    <string name="sign_up_lbl_hatecir">Circuito più odiato</string>
+    <string name="sign_up_txt_hatecir_placeholder">Inserisci qui il circuito che odi di più</string>
+    <string name="sign_up_lbl_complete">Completa il tuo profilo</string>
+    <string name="sign_up_btn_avatar">Scegli avatar</string>
+    <string name="sign_up_lbl_choose_password">Scegli una password</string>
+    <string name="sign_up_txt_password_placeholder">Inserisci qui la password</string>
+    <string name="sign_up_lbl_password">Password</string>
+    <string name="sign_up_lbl_confirm_password">Conferma password</string>
+    <string name="sign_up_txt_confirm_password_placeholder">Reinscerisci la stessa password</string>
+    <string name="sign_up_cbx_terms">Dichiaro di aver letto e accettato i termini di utilizzo del servizio SimCareer
+    </string>
+    <string name="sign_up_cbx_privacy">Dichiaro di aver letto e accettato il documento sul trattamento dei dati
+        personali ai fini della fruizione del servizio offerto
+    </string>
+    <string name="sign_up_btn_sign_up">Registrati</string>
+    <string name="sign_up_password_mismatch">Le due password non coincidono</string>
+    <string name="sign_up_cbx_not_selected">E\' obbligatorio accettare i termini di utilizzo e aver preso visione\" +
+        \"del documento della privacy
+    </string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_home_second">Hello HomeSecondFragment. Arg: %1$s</string>
+    <string name="hello_dashboard_second">Hello HomeSecondFragment. Arg: %1$s</string>
+    <string name="hello_notifications_second">Hello HomeSecondFragment. Arg: %1$s</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="home_championships_tab_text">Campionati</string>
+    <string name="home_gallery_tab_text">Galleria</string>
+    <string name="championships_app_bar_title">Lista campionati</string>
+    <string name="gallery_app_bar_title">Galleria fotografica</string>
+    <string name="championships_description_starting">Campionato svolto sui circuiti di</string>
+    <string name="championships_error_parsing">Errore in una o più date</string>
+    <string name="championships_chip_over_text">Concluso</string>
+    <string name="championships_chip_ongoing_text">In corso</string>
+    <string name="championships_details_app_bar_title">Dettagli campionato</string>
+    <string name="championship_detail_io_tab"/>
+    <string name="championship_detail_info_tab">Informazioni</string>
+    <string name="championship_detail_pilot_list_tab">Lista iscritti</string>
+    <string name="championship_detail_calendar_tab">Calendario</string>
+    <string name="championship_detail_info_lbl_settings">Impostazioni</string>
+    <string name="championships_details_info_btn_subscribe_text">Iscriviti</string>
+    <string name="championships_details_info_btn_ranking_text">Visualizza classifica</string>
+    <string name="championships_details_info_btn_forum_text">Vai al forum</string>
+    <string name="main_btn_guest_text">Accedi come ospite</string>
+    <string name="championship_detail_info_lbl_cars">Auto disponibili</string>
+    <string name="championships_details_info_btn_unsubscribe_text">Cancella iscrizione</string>
+    <string name="championships_details_info_subscription_error">Si è verificato un errore durante l\'operazione
+    </string>
+    <string name="championship_details_pilot_list_team_pre">Team di appartenenza:</string>
+    <string name="championship_details_pilot_list_car_pre">Veicolo:</string>
+    <string name="ranking_title">Classifica campionato</string>
+    <string name="ranking_error">Si è verificato un errore nel caricamento della classifica</string>
+    <string name="pilot_ranking_points">punti</string>
+    <string name="home_notifications_tab_text">Notifiche</string>
+    <string name="home_profile_tab_text">Profilo</string>
+    <string name="profile_app_bar_title">Profilo</string>
+    <string name="notifications_app_bar_title">Notifiche</string>
+    <string name="gallery_loading_error">Si è verificato un errore durante il caricamento delle galleire</string>
+    <string name="login_lbl_password_text">Password</string>
+</resources>

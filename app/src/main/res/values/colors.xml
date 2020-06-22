@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#333333</color>
+    <color name="btn_blue_background">#446D9F</color>
+    <color name="btn_text_color">#E2E8F5</color>
+    <color name="btn_stroke_color">#797979</color>
+    <color name="infolbl_text_color">#AAAAAA</color>
+    <color name="appbar_background_color">#616161</color>
+    <color name="transparent">#00FF0000</color>
+    <color name="championships_chip_over_background">#BCFD695E</color>
+    <color name="championships_chip_ongoing_background">#ADB9F791</color>
+    <color name="gold">#31BFBF00</color>
+    <color name="silver">#31797979</color>
+    <color name="bronze">#317B4D12</color>
+
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+    <com.google.android.material.card.MaterialCardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/championships_details_pilot_list_row"
+            android:layout_margin="15dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@android:color/darker_gray"
+            android:clickable="false"
+            android:focusable="false"
+    >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        >
+
+
+            <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/ic_pilot"
+                    android:id="@+id/championship_detail_pilot_list_img"
+            />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/championship_detail_pilot_list_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:id="@+id/championship_detail_pilot_list_txt_name"
+                    android:textStyle="bold"
+            />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/championship_detail_pilot_list_txt_name"
+                    app:layout_constraintStart_toStartOf="@id/championship_detail_pilot_list_txt_name"
+                    app:layout_constraintEnd_toEndOf="@id/championship_detail_pilot_list_txt_name"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/championship_detail_pilot_list_txt_team"
+            />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/championship_detail_pilot_list_txt_team"
+                    app:layout_constraintStart_toStartOf="@id/championship_detail_pilot_list_txt_team"
+                    app:layout_constraintEnd_toEndOf="@id/championship_detail_pilot_list_txt_team"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/championship_detail_pilot_list_txt_car"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

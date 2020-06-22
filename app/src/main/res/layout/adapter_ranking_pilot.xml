@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:clickable="false"
+        android:focusable="false"
+>
+
+    <com.google.android.material.card.MaterialCardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ranking_pilot_row"
+            android:layout_margin="15dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@android:color/darker_gray"
+            android:clickable="false"
+    >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+        >
+
+
+            <TextView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="30dp"
+                    android:textSize="39sp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/ranking_pilot_txt_position"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:focusable="false"
+            />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ranking_pilot_txt_position"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:id="@+id/ranking_pilot_txt_name"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:focusable="false"
+            />
+
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_pilot_txt_name"
+                    app:layout_constraintStart_toStartOf="@id/ranking_pilot_txt_name"
+                    app:layout_constraintEnd_toEndOf="@id/ranking_pilot_txt_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/ranking_pilot_txt_car"
+                    android:clickable="false"
+                    android:focusable="false"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

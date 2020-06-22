@@ -1,0 +1,75 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="SimCareerButton">
+
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/btn_blue_background</item>
+        <item name="android:iconTint" tools:targetApi="o">@android:color/transparent</item>
+        <item name="cornerRadius">@dimen/btn_corner_radius</item>
+        <item name="android:textSize">@dimen/btn_text_size</item>
+        <item name="android:textColor">@color/btn_text_color</item>
+        <item name="strokeColor">@color/btn_stroke_color</item>
+        <item name="strokeWidth">@dimen/btn_stroke_width</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/arial</item>
+
+    </style>
+
+
+    <style name="lbl_info">
+
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
+        <item name="android:enabled">false</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/arial</item>
+        <item name="android:textColor">@color/infolbl_text_color</item>
+    </style>
+
+    <style name="AppBar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/appbar_background_color</item>
+        <item name="android:textSize">@dimen/appbar_title_size</item>
+        <item name="android:titleMarginStart" tools:targetApi="n">@dimen/appbar_title_margin</item>
+        <item name="title">@string/app_name</item>
+        <item name="logo">@mipmap/ic_launcher</item>
+        <item name="titleMarginStart">26dp</item>
+    </style>
+
+    <style name="lbl_info_big" parent="lbl_info">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="input_text">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/btn_text_size</item>
+    </style>
+
+    <style name="lbl_welcome">
+
+        <item name="android:textSize">17sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/arial</item>
+
+    </style>
+    <style name="championship_chip">
+
+        <item name="android:textAlignment">center</item>
+
+
+    </style>
+    <style name="lbl_title">
+
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@android:color/black</item>
+
+    </style>
+
+
+</resources>
