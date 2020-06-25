@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.*;
-import java.util.List;
 
 public class FileUtil {
 
+    private static final boolean REWRITE = false;
     public static final String TAG = "FileUtil";
 
     public static void writeToFile(Context applicationContext, String fileName, String string, boolean append) throws IOException {
@@ -25,7 +25,7 @@ public class FileUtil {
         for( String fileName : files ){
 
             File file = new File(applicationContext.getExternalFilesDir(null), fileName+".json");
-            if( !file.exists() ) {
+            if( !file.exists() || REWRITE ) {
                 try {
 
                     copyFile(applicationContext, fileName);

@@ -52,12 +52,12 @@ public class ChampionshipsListFragment extends Fragment {
 
             if( result.getError() != null ){
 
-                Toast.makeText(this.getView().getContext(), "Errore nel recupero della lista dei campionati", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.requireContext(), "Errore nel recupero della lista dei campionati", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, result.getError().toString());
 
             } else if( result.getContent() != null) {
 
-                ChampionshipsAdapter adapter = new ChampionshipsAdapter(result.getContent(), this.getView().getContext());
+                ChampionshipsAdapter adapter = new ChampionshipsAdapter(result.getContent(), this.requireContext());
                 this.lstChampionshipsList.setAdapter(adapter);
 
             }

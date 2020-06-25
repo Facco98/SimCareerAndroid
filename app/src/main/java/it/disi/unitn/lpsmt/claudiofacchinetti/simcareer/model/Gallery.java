@@ -2,7 +2,6 @@ package it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model;
 
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.util.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Gallery {

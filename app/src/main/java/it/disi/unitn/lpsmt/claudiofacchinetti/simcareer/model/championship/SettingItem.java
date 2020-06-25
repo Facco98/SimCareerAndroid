@@ -2,7 +2,9 @@ package it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SettingItem {
+import java.io.Serializable;
+
+public class SettingItem implements Serializable {
 
     @SerializedName("tipo")
     private String type;

@@ -10,7 +10,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.fragment.GalleryExplorerFragment;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.fragment.championship.ChampionshipsDetailsFragment;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.Gallery;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Remote;
 

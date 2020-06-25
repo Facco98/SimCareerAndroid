@@ -94,4 +94,11 @@
     <string name="notifications_app_bar_title">Notifiche</string>
     <string name="gallery_loading_error">Si è verificato un errore durante il caricamento delle galleire</string>
     <string name="login_lbl_password_text">Password</string>
+    <string name="edit_list_lbl_title">Scegli un campionato da modificare</string>
+    <string name="edit_championship_btn_confirm">Conferma</string>
+    <string name="edit_championship_txt_name_hint">Inserisci il nome del campionato</string>
+    <string name="edit_championship_txt_value_hint">Inserisci il valore per questa impostazione</string>
+    <string name="edit_championship_txt_cars_hint">Inserisci la lista dele auto ammesse, separate da virgola</string>
+    <string name="channel_name">SimCareerChannel</string>
+    <string name="channel_description">Channel used to send the SimCarrer notifications</string>
 </resources>

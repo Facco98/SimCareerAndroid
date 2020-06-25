@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.google.android.material.card.MaterialCardView;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship.PilotSubscriptionItem;
 

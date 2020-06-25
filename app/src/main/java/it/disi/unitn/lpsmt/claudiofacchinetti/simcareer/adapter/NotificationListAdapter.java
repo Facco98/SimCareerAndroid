@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.Notification;
+import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.persistence.PersistenceManager;
 
 import java.util.List;
 
@@ -23,6 +24,10 @@ public class NotificationListAdapter extends BaseAdapter {
 
     }
 
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
 
     @Override
     public int getCount() {
@@ -51,6 +56,32 @@ public class NotificationListAdapter extends BaseAdapter {
 
         lblTitle.setText(element.getTitle());
         lblDescription.setText(element.getDescription());
+
+        View finalConvertView = convertView;
+        convertView.setOnTouchListener(new OnSwipeTouchListener(finalConvertView.getContext()) {
+            @Override
+            public void onSwipeRight() {
+
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                notifications.remove(position);
+                notifyDataSetChanged();
+                PersistenceManager pm = new PersistenceManager(finalConvertView.getContext().getApplicationContext());
+                pm.setNotifications(notifications);
+            }
+
+            @Override
+            public void onSwipeTop() {
+
+            }
+
+            @Override
+            public void onSwipeBottom() {
+
+            }
+        });
 
         return convertView;
 

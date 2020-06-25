@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.google.android.material.card.MaterialCardView;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.ranking.PilotRankingItem;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.ranking.TeamRankingItem;
 
 import java.util.List;

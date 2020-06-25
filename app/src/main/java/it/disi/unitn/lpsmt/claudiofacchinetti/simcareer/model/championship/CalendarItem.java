@@ -2,12 +2,13 @@ package it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class CalendarItem {
+public class CalendarItem implements Serializable {
 
     @SerializedName("seq")
     private String seq;

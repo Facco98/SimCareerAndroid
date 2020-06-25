@@ -1,7 +1,6 @@
 package it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.ranking;
 
 import com.google.gson.annotations.SerializedName;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship.Championship;
 
 import java.util.List;
 

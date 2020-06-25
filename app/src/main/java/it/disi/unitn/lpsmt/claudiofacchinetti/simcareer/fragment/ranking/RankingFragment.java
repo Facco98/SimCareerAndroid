@@ -11,21 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.adapter.ViewPagerAdapter;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.fragment.championship.ChampionshipDetailsCalendarFragment;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.fragment.championship.ChampionshipDetailsInfoFragment;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.fragment.championship.ChampionshipsDetailsPilotListFragment;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship.Championship;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.ranking.ChampionshipRanking;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.persistence.PersistenceManager;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Remote;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Result;
-
-import java.util.Comparator;
 
 public class RankingFragment extends Fragment {
 

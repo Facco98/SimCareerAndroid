@@ -9,9 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.adapter.PilotRankingAdapter;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.adapter.TeamRankingAdapter;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.ranking.PilotRankingItem;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.ranking.TeamRankingItem;
 
 import java.util.Collections;

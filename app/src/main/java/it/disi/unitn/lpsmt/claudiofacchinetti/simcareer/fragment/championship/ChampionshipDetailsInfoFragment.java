@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.button.MaterialButton;
@@ -193,10 +192,19 @@ public class ChampionshipDetailsInfoFragment extends Fragment {
                 this.dialog = null;
             }
 
-            FragmentManager fragmentManager =  this.getActivity().getSupportFragmentManager();
-            Fragment f = fragmentManager.findFragmentById(R.id.home_frg_container);
-            if( f != null )
-                fragmentManager.beginTransaction().detach(f).attach(f).commit();
+            Remote.loadChampionshipsUserIsSubscribed(this.user, (res) -> {
+
+                if( res.getError() != null )
+                    res.getError().printStackTrace();
+                else if( res.getContent() != null )
+                    new PersistenceManager(this.requireContext().getApplicationContext()).updatePreviousList(res.getContent());
+
+                FragmentManager fragmentManager =  this.requireActivity().getSupportFragmentManager();
+                Fragment f = fragmentManager.findFragmentById(R.id.home_frg_container);
+                if( f != null )
+                    fragmentManager.beginTransaction().detach(f).attach(f).commit();
+            });
+
 
         }
     }

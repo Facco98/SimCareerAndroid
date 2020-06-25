@@ -3,17 +3,16 @@ package it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.exception.InvalidCarException;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.util.Constants;
 
-import java.lang.reflect.Array;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Championship {
+public class Championship implements Serializable {
 
     @SerializedName("id")
     private String id;
@@ -223,4 +222,88 @@ public class Championship {
             this.subscribedPilots.remove(item);
 
     }
+
+    public List<ChampionshipDifference<String>> differences (@NonNull Championship c) {
+
+        if( !c.getId().equals(this.getId()) )
+            return null;
+
+        List<ChampionshipDifference<String>> differences = new ArrayList<>();
+        List<CalendarItem> cCalcendar = c.getCalendar();
+        Collections.sort(this.calendar, (a,b) -> Integer.parseInt(a.getSeq()) - Integer.parseInt(b.getSeq()));
+        Collections.sort(cCalcendar, (a,b) -> Integer.parseInt(a.getSeq()) - Integer.parseInt(b.getSeq()));
+        if( this.calendar.size() != cCalcendar.size() ){
+
+            differences.add(new ChampionshipDifference<String>(this.getName(), Field.LENGTH, ""+calendar.size(), ""+cCalcendar.size()));
+
+        } else{
+
+            boolean end = false;
+            for (int i = 0; i < calendar.size() && !end; i++ ) {
+
+                CalendarItem first = calendar.get(i);
+                CalendarItem second = cCalcendar.get(i);
+                if (!first.getDate().equals(second.getDate())) {
+                    differences.add(new ChampionshipDifference<String>(this.getName(), Field.CALENDAR, first.getDate(), second.getDate()));
+                    end = true;
+                }
+                if (!first.getCircuit().equals(second.getCircuit())) {
+                    differences.add(new ChampionshipDifference<String>(this.getName(),Field.CIRCUIT, first.getCircuit(), second.getCircuit()));
+                    end = true;
+                }
+            }
+
+        }
+
+        if( !this.carList.equals(c.getCarListAsString()) ){
+
+            differences.add(new ChampionshipDifference<String>(this.getName(),Field.CAR_LIST, this.carList, c.getCarListAsString()));
+
+        } else{
+
+            List<String> carList = this.getCarList();
+            List<String> cCarList = c.getCarList();
+            Collections.sort(carList);
+            Collections.sort(cCarList);
+            boolean end = false;
+            for (int i = 0; i < this.getCarList().size() && !end; i++ ) {
+
+                if( !carList.get(i).equals(cCarList.get(i)) ){
+                    differences.add(new ChampionshipDifference<>(this.getName(),Field.CAR_LIST, this.getCarListAsString(), c.getCarListAsString()));
+                    end = true;
+                }
+
+            }
+
+        }
+
+        if( this.gameSettings.size() != c.getGameSettings().size() ){
+
+            differences.add(new ChampionshipDifference<String>(this.getName(),Field.GAME_SETTINGS, ""+this.getGameSettings().size(), ""+c.getGameSettings().size()));
+
+        } else{
+
+            List<SettingItem> gameSettings = this.getGameSettings();
+            List<SettingItem> cGameSettings = c.getGameSettings();
+            Collections.sort(gameSettings, (a,b) -> a.getType().compareTo(b.getType()));
+            Collections.sort(cGameSettings, (a,b) -> a.getType().compareTo(b.getType()));
+            boolean end = false;
+            for (int i = 0; i < gameSettings.size() && !end; i++ ) {
+
+                for( int j = 0; j < gameSettings.size() && !end; j++ )
+                    if( gameSettings.get(i).getType().equals(cGameSettings.get(j).getType()) &&
+                            !gameSettings.get(i).getValue().equals(cGameSettings.get(j).getValue())){
+                        differences.add(new ChampionshipDifference<String>(this.getName(), Field.GAME_SETTINGS, this.getCarListAsString(), c.getCarListAsString()));
+                        end = true;
+                    }
+
+            }
+
+        }
+
+        return differences;
+
+
+    }
+
 }

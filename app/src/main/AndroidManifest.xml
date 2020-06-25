@@ -32,10 +32,13 @@
         </activity>
         <activity android:name=".activity.SignUpActivity">
         </activity>
+        <activity android:name=".activity.EditListActivity">
+        </activity>
+        <activity android:name=".activity.EditChampionshipActivity">
+        </activity>
 
         <service
                 android:name=".service.NotificationService"
-                android:isolatedProcess="true"
                 android:stopWithTask="false"
         />
 

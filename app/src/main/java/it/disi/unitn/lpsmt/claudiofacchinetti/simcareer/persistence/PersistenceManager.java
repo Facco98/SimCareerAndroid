@@ -7,7 +7,9 @@ import androidx.annotation.Nullable;
 import com.google.gson.Gson;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.Notification;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
+import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship.Championship;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class PersistenceManager {
     private static final String USER_KEY = "USER";
     private static final String PREFERENCES_NAME = "PERSISTANCE";
     private static final String NOTIFICATIONS_KEY = "NOTIFICATIONS";
+    private static final String CHAMPIONSHIP_LIST_KEY = "CHAMPIONSHIPS";
 
     private final Context context;
 
@@ -69,7 +72,7 @@ public class PersistenceManager {
         Notification[] notifications;
         SharedPreferences preferences = this.context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         notifications = new Gson().fromJson(preferences.getString(NOTIFICATIONS_KEY, "[]"), Notification[].class);
-        return Arrays.asList(notifications);
+        return new ArrayList<Notification>(Arrays.asList(notifications));
 
     }
 
@@ -87,4 +90,45 @@ public class PersistenceManager {
     }
 
 
+    public List<Championship> getPreviousList() {
+
+        Championship[] notifications;
+        SharedPreferences preferences = this.context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+        notifications = new Gson().fromJson(preferences.getString(CHAMPIONSHIP_LIST_KEY, "[]"), Championship[].class);
+        return Arrays.asList(notifications);
+
+
+    }
+
+    public void updatePreviousList( List<Championship> list ){
+
+        SharedPreferences preferences = this.context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(CHAMPIONSHIP_LIST_KEY, gson.toJson(list));
+        editor.apply();
+
+    }
+
+    public void addNotifications(List<Notification> list){
+
+        List<Notification> alreadySaved = this.getNotifications();
+        alreadySaved.addAll(list);
+        SharedPreferences preferences = this.context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(NOTIFICATIONS_KEY, gson.toJson(alreadySaved));
+        editor.apply();
+
+    }
+
+    public void setNotifications(List<Notification> lst){
+
+        SharedPreferences preferences = this.context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(NOTIFICATIONS_KEY, gson.toJson(lst));
+        editor.apply();
+
+    }
 }

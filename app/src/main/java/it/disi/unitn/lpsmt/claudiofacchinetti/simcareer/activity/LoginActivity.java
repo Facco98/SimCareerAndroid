@@ -9,10 +9,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
+import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.persistence.PersistenceManager;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Remote;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Result;
-import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 

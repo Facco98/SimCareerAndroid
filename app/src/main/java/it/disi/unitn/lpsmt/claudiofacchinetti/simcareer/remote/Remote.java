@@ -28,8 +28,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -146,7 +146,7 @@ public class Remote {
 
     public static void loadBitmapFromAssets(@NonNull String fullPath, @NonNull Completion<Result<Bitmap>> completion) {
 
-        BackgroundTask<Void, Bitmap> loadImgTask = new BackgroundTask<>((voids) -> {
+        BackgroundTask<Void, Bitmap> loadImgTask = new BackgroundTask<Void, Bitmap>((voids) -> {
 
             InputStream is = null;
             try {
@@ -273,6 +273,39 @@ public class Remote {
 
     }
 
+    public static void loadChampionshipsUserIsSubscribed(@NonNull User user,
+                                                         @NonNull Completion<Result<List<Championship>>> completion){
+
+        Completion<Result<List<Championship>>> retrieveCompletion = (result) -> {
+
+          if( result.getError() != null ){
+
+              completion.onComplete(result);
+
+          } else if( result.getContent() != null ){
+
+              BackgroundTask<Void, List<Championship>> filterTask = new BackgroundTask<>((voids) -> {
+                  List<Championship> championships = new ArrayList<>();
+                  for( Championship c : result.getContent() ) {
+                      try {
+                          if (c != null && c.userPartecipates(user) != null && c.userPartecipates(user).equals(true))
+                              championships.add(c);
+                      } catch (ParseException e) {
+
+                      }
+                  }
+                  return new Result<List<Championship>>(championships);
+              }, completion);
+              filterTask.execute(new Void[1]);
+          }
+
+        };
+
+        getChampionshipsList(retrieveCompletion);
+
+
+    }
+
     public static void loadRankingForChampionship(@NonNull Championship championship,
                                                   @NonNull Completion<Result<ChampionshipRanking>> completion) {
 
@@ -346,6 +379,37 @@ public class Remote {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public static void editChampionship(@NonNull Championship championship, @Nullable Completion<Result<Integer>> completion) {
+
+        getChampionshipsList((result) ->{
+
+            if( result.getError() != null ){
+
+                if( completion != null )
+                    completion.onComplete(new Result<Integer>(result.getError()));
+                else
+                    result.getError().printStackTrace();
+
+            } else if( result.getContent() != null ){
+
+                if( completion != null )
+                    rewriteChampionshipList(result.getContent(), championship, completion);
+                else
+                    rewriteChampionshipList(result.getContent(), championship, (res) -> {
+
+                        if( res.getError() != null )
+                            res.getError().printStackTrace();
+
+                    });
+
+
+            }
+
+        });
+
 
     }
 }
