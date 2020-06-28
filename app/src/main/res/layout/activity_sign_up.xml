@@ -19,7 +19,7 @@
             tools:context=".activity.SignUpActivity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/sign_up_scroll_view"
+            android:id="@+id/profile_scroll_view"
             app:layout_constraintTop_toBottomOf="@+id/topAppBar" android:layout_marginTop="56dp"
             app:layout_constraintHorizontal_bias="0.0"
             >

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
@@ -92,9 +93,9 @@ public class UserDbHelper extends SQLiteOpenHelper {
                     favCar = c.getString(5), favCir = c.getString(6), favRace = c.getString(7),
                     hatedCir = c.getString(8);
             byte[] avatar = c.getBlob(9);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(avatar, 0, avatar.length);
+            String avatarString = Base64.encodeToString(avatar, Base64.DEFAULT);
             Date bDate = new SimpleDateFormat("E MMM dd hh:mm:ss z yyyy", Locale.US).parse(c.getString(4));
-            User u = new User(email, name, surname, living, bDate, favCar, favRace, favCir,hatedCir,bitmap);
+            User u = new User(email, name, surname, living, bDate, favCar, favRace, favCir,hatedCir, avatarString);
             return u;
 
         }
@@ -122,7 +123,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
-            stream.close();
+            //stream.close();
             stmt.put(UserContract.COLUMN_NAME_AVATAR, byteArray);
         }  else {
             stmt.put(UserContract.COLUMN_NAME_AVATAR, new byte[0]);

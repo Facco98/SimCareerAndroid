@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/AppBar"
+            app:title="@string/profile_app_bar_title"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+    />
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".activity.SignUpActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/profile_scroll_view"
+            app:layout_constraintTop_toBottomOf="@+id/topAppBar" android:layout_marginTop="56dp"
+            app:layout_constraintHorizontal_bias="0.0"
+    >
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:clickable="true"
+                android:focusableInTouchMode="true" android:focusable="true">
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_personal_info"
+                    style="@style/lbl_info_big"
+                    android:text="@string/profile_lbl_personal_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="20dp"/>
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_name"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_name"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_personal_info"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_personal_info"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_personal_info" android:layout_marginTop="20dp"
+            />
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_name"
+                    android:hint="@string/profile_txt_name_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_name"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_name"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_name"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_surname"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_surname"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_name"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_name"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_name" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_surname"
+                    android:hint="@string/profile_txt_surname_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_surname"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_surname"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_surname"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_email"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_email"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_surname"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_surname"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_surname" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_email"
+                    android:hint="@string/profile_txt_email_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_email"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_email"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_email"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_bdate"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_bdate"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_email"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_email"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_email" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_bdate"
+                    android:hint="@string/profile_txt_bdate_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_bdate"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_bdate"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_bdate"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_living"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_living"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_bdate"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_bdate"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_bdate" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_living"
+                    android:hint="@string/profile_txt_living_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_living"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_living"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_living"
+            />
+
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_prefrace"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_prefrace"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_living"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_living"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_living" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_prefrace"
+                    android:hint="@string/profile_txt_prefrace_placeholder"
+                    android:inputType="number" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_prefrace"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_prefrace"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_prefrace"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_prefcircuit"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_prefcircuit"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_prefrace"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_prefrace"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_prefrace" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_prefcircuit"
+                    android:hint="@string/profile_txt_prefcircuit_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_prefcircuit"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_prefcircuit"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_prefcircuit"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_prefcar"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_prefcar"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_prefcircuit"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_prefcircuit"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_prefcircuit" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_prefcar"
+                    android:hint="@string/profile_txt_prefcar_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_prefcar"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_prefcar"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_prefcar"
+            />
+
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_hatecir"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_hatecir"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_prefcar"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_prefcar"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_prefcar" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_hatecir"
+                    android:hint="@string/profile_txt_hatecir_placeholder"
+                    android:inputType="textEmailAddress" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_hatecir"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_hatecir"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_hatecir"
+            />
+
+            <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/profile_img_avatar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_hatecir"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/darker_gray"
+            />
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_btn_avatar"
+                    android:text="@string/profile_btn_avatar"
+                    style="@style/SimCareerButton"
+                    app:layout_constraintStart_toStartOf="@+id/profile_img_avatar"
+                    app:layout_constraintEnd_toEndOf="@+id/profile_img_avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_img_avatar"
+                    android:layout_marginTop="10dp"
+            />
+
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_password"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_password"
+                    app:layout_constraintEnd_toEndOf="@id/profile_btn_avatar"
+                    app:layout_constraintStart_toStartOf="@id/profile_btn_avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_btn_avatar"
+                    android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_password"
+                    android:hint="@string/profile_txt_password_placeholder"
+                    android:inputType="textPassword" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_password"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_password"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_password"
+            />
+
+            <TextView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_lbl_confirm_password"
+                    style="@style/lbl_info"
+                    android:textAlignment="textStart"
+                    android:text="@string/profile_lbl_confirm_password"
+                    app:layout_constraintEnd_toEndOf="@id/profile_txt_password"
+                    app:layout_constraintStart_toStartOf="@id/profile_txt_password"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_password" android:layout_marginTop="20dp"
+            />
+
+            <EditText
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:id="@+id/profile_txt_confirm_password"
+                    android:hint="@string/profile_txt_confirm_password_placeholder"
+                    android:inputType="textPassword" style="@style/input_text"
+                    app:layout_constraintEnd_toEndOf="@id/profile_lbl_confirm_password"
+                    app:layout_constraintStart_toStartOf="@id/profile_lbl_confirm_password"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_lbl_confirm_password"
+            />
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_btn_update"
+                    android:text="@string/profile_btn_update"
+                    style="@style/SimCareerButton"
+                    app:layout_constraintStart_toStartOf="@+id/profile_txt_confirm_password"
+                    app:layout_constraintEnd_toEndOf="@+id/profile_txt_confirm_password"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_txt_confirm_password"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+            />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 case R.id.home_tab_profile:
                     if (this.loadedFragments.get(ProfileFragment.KEY) == null)
-                        this.loadedFragments.put(ProfileFragment.KEY, new ProfileFragment());
+                        this.loadedFragments.put(ProfileFragment.KEY, new ProfileFragment(this.user));
                     toLoad = this.loadedFragments.get(ProfileFragment.KEY);
                     break;
 

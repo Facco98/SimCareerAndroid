@@ -101,4 +101,33 @@
     <string name="edit_championship_txt_cars_hint">Inserisci la lista dele auto ammesse, separate da virgola</string>
     <string name="channel_name">SimCareerChannel</string>
     <string name="channel_description">Channel used to send the SimCarrer notifications</string>
+    <string name="profile_toolbar_text">Profilo</string>
+    <string name="profile_lbl_start">E\' necessario effettuare l\'accesso al proprio profilo</string>
+    <string name="profile_lbl_personal_info">Informazioni personali</string>
+    <string name="profile_lbl_name">Nome</string>
+    <string name="profile_txt_name_placeholder">Inserisci qui il nome</string>
+    <string name="profile_lbl_surname">Cognome</string>
+    <string name="profile_txt_surname_placeholder">Inserisci qui il cognome</string>
+    <string name="profile_lbl_email">Email</string>
+    <string name="profile_txt_email_placeholder">Inserisci qui la tua email</string>
+    <string name="profile_lbl_bdate">Data di nascita</string>
+    <string name="profile_txt_bdate_placeholder">Inserisci qui la tua data di nascita</string>
+    <string name="profile_lbl_living">Residenza</string>
+    <string name="profile_txt_living_placeholder">Inserisci qui la tua residenza</string>
+    <string name="profile_lbl_prefrace">Numero di gara preferito</string>
+    <string name="profile_txt_prefrace_placeholder">Inserisci il tuo numero di gara preferito</string>
+    <string name="profile_lbl_prefcircuit">Circuito preferito</string>
+    <string name="profile_txt_prefcircuit_placeholder">Inserisci il tuo circuito preferito</string>
+    <string name="profile_lbl_prefcar">Auto preferita</string>
+    <string name="profile_txt_prefcar_placeholder">Inserisci la tua auto preferita</string>
+    <string name="profile_lbl_hatecir">Circuito più odiato</string>
+    <string name="profile_txt_hatecir_placeholder">Inserisci il circuito più odiato</string>
+    <string name="profile_btn_avatar">Scegli avatar</string>
+    <string name="profile_lbl_password">Password</string>
+    <string name="profile_txt_password_placeholder">Cambia password, lascia vuoto per non cambiarla</string>
+    <string name="profile_lbl_confirm_password">Conferma la nuova password</string>
+    <string name="profile_txt_confirm_password_placeholder">Conferma la nuova password, lascia vuoto per non cambiare la
+        password
+    </string>
+    <string name="profile_btn_update">Aggiorna profilo</string>
 </resources>

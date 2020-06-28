@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //this.deleteDatabase("User.db");
+        //new PersistenceManager(this.getApplicationContext()).setUser(null);
         Remote.init(this.getApplicationContext());
         setContentView(R.layout.activity_main);
         this.initUI();

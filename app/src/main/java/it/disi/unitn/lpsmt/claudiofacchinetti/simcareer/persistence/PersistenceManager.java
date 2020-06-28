@@ -60,6 +60,7 @@ public class PersistenceManager {
                 editor.remove(USER_KEY);
             } else {
                 String userJSON = new Gson().toJson(user);
+                System.out.println(userJSON);
                 editor.putString(USER_KEY, userJSON);
             }
             editor.commit();

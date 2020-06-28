@@ -3,11 +3,12 @@ package it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,6 +21,9 @@ import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Remote;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Result;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,6 +57,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     private ImageView imgAvatar;
 
+    private Bitmap choosenImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +75,20 @@ public class SignUpActivity extends AppCompatActivity {
 
             Uri selectedImage = data.getData();
 
-            this.imgAvatar.setImageURI(selectedImage);
-            this.imgAvatar.setBackgroundColor(Color.TRANSPARENT);
+            if( selectedImage == null )
+                return;
+
+
+
+            try {
+                InputStream is = this.getContentResolver().openInputStream(selectedImage);
+                this.choosenImage = BitmapFactory.decodeStream(is);
+
+               this.imgAvatar.setImageBitmap(this.choosenImage);
+                this.imgAvatar.setBackgroundColor(Color.TRANSPARENT);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
             /*
             String[] filePathColumn = { MediaStore.Images.Media.DATE_ADDED };
@@ -133,7 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
         Log.i(TAG, "Button ChooseAvatar did click!");
 
         Intent intent = new Intent();
-        intent.setType("image/*");
+        intent.setType("image/png");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         this.startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
 
@@ -145,7 +163,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         if( !this.cbxTerms.isChecked() || !this.cbxPrivacy.isChecked() ){
 
-            Toast.makeText(this, R.string.sign_up_cbx_not_selected, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.sign_up_cbx_not_selected, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -162,7 +180,6 @@ public class SignUpActivity extends AppCompatActivity {
             String password = this.txtPassword.getText().toString().trim();
             String confirmPassword = this.txtConfirmPassword.getText().toString().trim();
 
-
             this.assertNotEmpty(name, "Nome");
             this.assertNotEmpty(surname, "Cognome");
             this.assertNotEmpty(email, "Indirizzo email");
@@ -172,7 +189,10 @@ public class SignUpActivity extends AppCompatActivity {
             this.assertNotEmpty(password, "Password");
             this.assertNotEmpty(confirmPassword, "Conferma password");
 
-            Bitmap avatar = ((BitmapDrawable)imgAvatar.getDrawable()).getBitmap();
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            this.choosenImage.compress(Bitmap.CompressFormat.PNG, 100, os);
+
+            String avatarString = Base64.encodeToString(os.toByteArray(), Base64.DEFAULT);
 
             if( !password.equals(confirmPassword) )
                 Toast.makeText(this, R.string.sign_up_password_mismatch, Toast.LENGTH_SHORT ).show();
@@ -181,7 +201,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if (birthDate != null) {
                     User u = new User(email, name, surname, living, birthDate, favouriteCar, favouriteRace,
-                            favouriteCircuit, hatedCircuit, avatar);
+                            favouriteCircuit, hatedCircuit, avatarString);
                     Remote.register(u, password, this::registrationHandler);
                 }
 
