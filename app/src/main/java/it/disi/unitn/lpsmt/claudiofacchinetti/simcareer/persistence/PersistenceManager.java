@@ -4,16 +4,19 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.google.gson.Gson;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.Notification;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.championship.Championship;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class PersistenceManager {
+
+    private static final HashMap<Integer, UserCallback> callbacks = new HashMap<>() ;
 
     private final static String TAG = "PersistenceManager";
     private static final String USER_KEY = "USER";
@@ -64,6 +67,9 @@ public class PersistenceManager {
                 editor.putString(USER_KEY, userJSON);
             }
             editor.commit();
+            for( Map.Entry<Integer, UserCallback> callback : callbacks.entrySet() ){
+                callback.getValue().apply(user);
+            }
         }
     }
 
@@ -132,4 +138,11 @@ public class PersistenceManager {
         editor.apply();
 
     }
+
+    public static void registerForUserChange(@NonNull Object caller, @NonNull UserCallback callback){
+
+        callbacks.put(caller.hashCode(), callback);
+
+    }
+
 }

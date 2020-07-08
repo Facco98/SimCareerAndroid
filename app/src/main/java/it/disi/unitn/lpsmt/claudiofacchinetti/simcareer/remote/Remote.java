@@ -155,7 +155,7 @@ public class Remote {
                 return new Result<>(bmp);
             } catch (IOException e) {
 
-                return new Result(e);
+                return new Result<>(e);
 
             }
 
@@ -410,6 +410,26 @@ public class Remote {
 
         });
 
+
+    }
+
+    public static void update(@NonNull User user, @Nullable String password, @NonNull Completion<Result<Boolean>> completion){
+
+        if( userDbHelper == null )
+            userDbHelper = new UserDbHelper(applicationContext);
+
+        BackgroundTask<Void, Boolean> updateUserTask = new BackgroundTask<Void, Boolean>((voids) -> {
+
+            try {
+                long i = userDbHelper.updateUser(user, password, writableDatabase);
+                return new Result<>(true);
+            } catch ( Exception e ){
+                return new Result<>(e);
+            }
+
+
+        }, completion);
+        updateUserTask.execute(new Void[1]);
 
     }
 }

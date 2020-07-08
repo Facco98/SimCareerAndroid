@@ -10,12 +10,15 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.button.MaterialButton;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.activity.EditListActivity;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.adapter.NotificationListAdapter;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.Notification;
+import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.persistence.PersistenceManager;
 
 import java.util.List;
@@ -80,5 +83,15 @@ public class NotificationFragment extends Fragment {
         this.adapter.setNotifications(notifications);
         this.adapter.notifyDataSetChanged();
         this.swipeLayout.setRefreshing(false);
+    }
+
+    private void userChanged(User user){
+
+        FragmentManager fm = this.requireActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.detach(this);
+        ft.attach(this);
+        ft.commit();
+
     }
 }

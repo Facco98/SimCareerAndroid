@@ -20,6 +20,7 @@ import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.exception.EmptyFieldExce
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Remote;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Result;
+import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.util.Constants;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -32,7 +33,6 @@ import java.util.Locale;
 public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = "SignUpActivity";
-    private static final int PICK_IMAGE = 127;
 
     private EditText txtName;
     private EditText txtSurname;
@@ -70,7 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        if( requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null ){
+        if( requestCode == Constants.PICK_IMAGE && resultCode == RESULT_OK && data != null ){
 
 
             Uri selectedImage = data.getData();
@@ -153,7 +153,7 @@ public class SignUpActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/png");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        this.startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+        this.startActivityForResult(Intent.createChooser(intent, "Select Picture"), Constants.PICK_IMAGE);
 
     }
 
@@ -189,11 +189,15 @@ public class SignUpActivity extends AppCompatActivity {
             this.assertNotEmpty(password, "Password");
             this.assertNotEmpty(confirmPassword, "Conferma password");
 
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            this.choosenImage.compress(Bitmap.CompressFormat.PNG, 100, os);
+            String avatarString = null;
 
-            String avatarString = Base64.encodeToString(os.toByteArray(), Base64.DEFAULT);
+            if( this.choosenImage != null ) {
 
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                this.choosenImage.compress(Bitmap.CompressFormat.PNG, 100, os);
+                avatarString = Base64.encodeToString(os.toByteArray(), Base64.DEFAULT);
+
+            }
             if( !password.equals(confirmPassword) )
                 Toast.makeText(this, R.string.sign_up_password_mismatch, Toast.LENGTH_SHORT ).show();
 

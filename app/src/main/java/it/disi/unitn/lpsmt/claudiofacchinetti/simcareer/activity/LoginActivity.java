@@ -50,14 +50,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private void handleLogin(Result<User> result){
 
-        if(result.getError() != null)
+        if(result.getError() != null) {
+            result.getError().printStackTrace();
             Toast.makeText(this, result.getError().getMessage(), Toast.LENGTH_SHORT).show();
+        }
         else if( result.getContent() != null ) {
             Log.i(TAG, "User logged in: " + result.getContent().getName() + " " + result.getContent().getSurname());
             new PersistenceManager(this.getApplicationContext()).setUser(result.getContent());
             Intent i = new Intent(this, HomeActivity.class);
             this.startActivity(i);
-            this.finish();
+            this.finishAffinity();
         }
     }
 

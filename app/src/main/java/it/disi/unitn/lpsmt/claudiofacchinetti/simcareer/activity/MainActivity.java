@@ -7,8 +7,14 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.R;
+import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.persistence.PersistenceManager;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.remote.Remote;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,9 +27,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //this.deleteDatabase("User.db");
         //new PersistenceManager(this.getApplicationContext()).setUser(null);
         Remote.init(this.getApplicationContext());
+        /*
+        try {
+            Date bDate = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY).parse("11/01/1998");
+            if(bDate == null )
+                return;
+            User u = new User("devack@hotmail.it", "Claudio", "Facchinetti", "BS", bDate,
+                    "Seat Leon", "89", "Leon", "Monza", null);
+            Remote.register(u, "pas", (res) -> {
+                System.out.println("REGISTERED");
+            });
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        */
+
         setContentView(R.layout.activity_main);
         this.initUI();
         if( new PersistenceManager(this.getApplicationContext()).isUserSignedIn() ){

@@ -130,4 +130,6 @@
         password
     </string>
     <string name="profile_btn_update">Aggiorna profilo</string>
+    <string name="profile_error_update">Si è verificato un errore nell\'aggiornamento del profilo</string>
+    <string name="profile_update_success">Il profilo è stato aggiornato correttamente</string>
 </resources>

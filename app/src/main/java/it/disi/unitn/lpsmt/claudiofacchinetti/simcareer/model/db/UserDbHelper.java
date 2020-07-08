@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import it.disi.unitn.lpsmt.claudiofacchinetti.simcareer.model.User;
@@ -131,6 +132,42 @@ public class UserDbHelper extends SQLiteOpenHelper {
 
         stmt.put(UserContract.COLUMN_NAME_BIRTH_DATE, user.getBirthDate().toString());
         return database.insert(UserContract.TABLE_NAME, null, stmt);
+
+    }
+
+    public long updateUser(@NonNull User user, @Nullable String password, @Nullable SQLiteDatabase db) throws NoSuchAlgorithmException {
+
+
+        SQLiteDatabase database = db;
+        if (database == null)
+            database = this.getWritableDatabase();
+
+        ContentValues stmt = new ContentValues();
+        stmt.put(UserContract.COLUMN_NAME_NAME, user.getName());
+        stmt.put(UserContract.COLUMN_NAME_SURNAME, user.getSurname());
+        stmt.put(UserContract.COLUMN_NAME_EMAIL, user.getEmail());
+        stmt.put(UserContract.COLUMN_NAME_LIVING, user.getLiving());
+        stmt.put(UserContract.COLUMN_NAME_FAVOURITE_RACE, user.getFavouriteRace());
+        stmt.put(UserContract.COLUMN_NAME_FAVOURITE_CIRCUIT, user.getFavouriteCircuit());
+        stmt.put(UserContract.COLUMN_NAME_FAVOURITE_CAR, user.getFavouriteCar());
+        stmt.put(UserContract.COLUMN_NAME_HATED_CIRCUIT, user.getHatedCircuit());
+        if( password != null )
+            stmt.put(UserContract.COLUMN_NAME_PASSWORD, new String(MessageDigest.getInstance("SHA256").digest(password.getBytes()), StandardCharsets.UTF_8));
+        Bitmap bmp = user.getAvatar();
+        if (bmp != null){
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            //stream.close();
+            stmt.put(UserContract.COLUMN_NAME_AVATAR, byteArray);
+        }  else {
+            stmt.put(UserContract.COLUMN_NAME_AVATAR, new byte[0]);
+        }
+
+        stmt.put(UserContract.COLUMN_NAME_BIRTH_DATE, user.getBirthDate().toString());
+        return database.update(UserContract.TABLE_NAME, stmt, UserContract.COLUMN_NAME_EMAIL + " = ?", new String[]{user.getEmail()});
+
+
 
     }
 }
