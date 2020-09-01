@@ -31,20 +31,7 @@ public class MainActivity extends AppCompatActivity {
         //this.deleteDatabase("User.db");
         //new PersistenceManager(this.getApplicationContext()).setUser(null);
         Remote.init(this.getApplicationContext());
-        /*
-        try {
-            Date bDate = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY).parse("11/01/1998");
-            if(bDate == null )
-                return;
-            User u = new User("devack@hotmail.it", "Claudio", "Facchinetti", "BS", bDate,
-                    "Seat Leon", "89", "Leon", "Monza", null);
-            Remote.register(u, "pas", (res) -> {
-                System.out.println("REGISTERED");
-            });
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        */
+        //this.addDefaultUser();
 
         setContentView(R.layout.activity_main);
         this.initUI();
@@ -89,6 +76,22 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Button guest did click");
         Intent i = new Intent(this, HomeActivity.class);
         this.startActivity(i);
+
+    }
+
+    private void addDefaultUser(){
+
+        try {
+            Date bDate = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY).parse("11/01/1998");
+            if(bDate == null )
+                return;
+            User u = new User("devack@hotmail.it", "Claudio", "Facchinetti", "BS", bDate,
+                    "Seat Leon", "89", "Leon", "Monza", null);
+            Remote.register(u, "pas", (res) -> System.out.println("REGISTERED") );
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
